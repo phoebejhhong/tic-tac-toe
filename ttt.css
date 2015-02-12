@@ -44,4 +44,20 @@ li {
 #notice {
   height: 20px;
   display: inline;
+  float: left;
+}
+
+#restart {
+  float:right;
+  visibility: hidden;
+}
+
+#restart a {
+  color: #53bde7;
+  text-decoration: none;
+}
+
+#restart a:hover {
+  color: black;
+  text-decoration: none;
 }

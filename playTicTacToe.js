@@ -1,19 +1,29 @@
-var board = new Board();
-var computer = new Computer(board);
-var human = new Human(board);
+var playTicTacToe = function () {
+};
 
-var g = new Game(board, computer, human);
+playTicTacToe.prototype.setUp = function () {
+  this.board = new Board();
+  this.computer = new Computer(this.board);
+  this.human = new Human(this.board);
+  this.game= new Game(this.board, this.computer, this.human);
+};
 
-g.run(function(){
-  board.print();
-  var message = null;
-  if (board.winner === "X") {
-    message = "You win!";
-  } else if (board.winner === "O") {
-    message = "You lose!";
-  } else {
-    message = "Draw!";
-  }
+playTicTacToe.prototype.play = function () {
+  var that = this;
+  this.game.run(this.restart.bind(this));
+};
 
-  document.getElementById("notice").innerHTML=message;
-});
+playTicTacToe.prototype.restart = function () {
+  var that = this;
+  document.getElementById("restart").onclick = function () {
+    that.setUp();
+    that.play();
+    document.getElementById("restart").style.visibility = "hidden";
+    document.getElementById("notice").innerHTML = "&nbsp;";
+  };
+};
+
+
+var ttt = new playTicTacToe;
+ttt.setUp();
+ttt.play();

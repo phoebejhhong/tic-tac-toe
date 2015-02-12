@@ -106,19 +106,4 @@ Board.prototype.print = function(){
       document.getElementById(xStr + yStr).innerHTML=this.grid[row][col];
     }
   }
-
-  // console.log("");
-
-  // this.grid.forEach(function(row){
-  //   var str = "";
-  //   row.forEach(function(el){
-  //     if (el){
-  //       str += el + " "
-  //     } else {
-  //       str += "_ "
-  //     }
-  //   });
-
-    // console.log(str);
-  // });
 };
